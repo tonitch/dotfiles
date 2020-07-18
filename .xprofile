@@ -1,0 +1,21 @@
+#!/bin/sh
+
+twmnd &
+$HOME/.fehbg &
+setxkbmap be &
+numlockx &
+picom &
+
+xset +fp /usr/share/fonts &
+xset +fp ~/.font &
+xset fp rehash &
+fc-cache -fv &
+
+xset s off &
+xset s noblank &
+xset noexpose &
+xset c on &
+xset -dpms &
+
+notify-send "Bienvenue ´whoami´!" &
+

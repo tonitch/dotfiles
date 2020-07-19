@@ -6,3 +6,4 @@ export BROWSER=/usr/bin/qutebrowser
 export TERMINAL=/usr/bin/st
 
 export IRCSERVER="irc.freenode.org:6667"
+export IRCNAME="Debucquoy Anthony"

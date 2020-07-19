@@ -1,0 +1,5 @@
+#!/bin/sh
+
+scrot -so /tmp/screenshot.png 
+xclip -sel clip -i /tmp/screenshot.png -t "image/png"
+

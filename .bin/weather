@@ -1,0 +1,25 @@
+#!/bin/bash
+
+#By Tonitch 
+
+conn(){
+curl -s --max-time 10 1.1.1.1 > /dev/null 2>&1
+}
+
+temp(){
+request=$(curl https://api.darksky.net/forecast/4de1270e2707885ffd3cbe9f78227e9a/50.745,3.2064?units=ca)
+answer=$(dunstify -a qutebrowser -u low "Today's Weather" "<b>Summary:</b> $(echo $request | jq .currently.summary)\n<b>Temperature:</b> $(echo $request | jq '.daily.data[0].temperatureLow')°c - $(echo $request | jq '.daily.data[0].temperatureHigh')°c " -A Web,"Web version." -t 60000)
+case $answer in
+	Web) qutebrowser https://darksky.net/forecast/50.745,3.2064/ca24/en;;
+esac
+}
+
+waiter(){
+	if ! conn; then
+		sleep 10 && waiter
+	else
+		temp
+	fi
+}
+
+waiter

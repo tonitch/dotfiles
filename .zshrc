@@ -62,6 +62,7 @@ alias df='df -h'                                                # Human-readable
 alias free='free -m'                                            # Show sizes in MB
 alias gitu='git add . && git commit && git push'
 alias ls='ls --color=auto'
+alias cal='cal -m'
 alias dotfiles='git --git-dir=$HOME/.config/dotfiles --work-tree=$HOME'
 
 # Theming section  

@@ -1,7 +1,16 @@
+"markdown shortcut and stuff
+autocmd BufNewFile,BufFilePre,BufRead  *.md set filetype=markdown.pandoc
+
+"python executing
+autocmd BufWritePost *.py map <F12> <ESC>:!clear && python % & read<CR> 
+autocmd BufWritePost *.py map <F11> <ESC>:!clear && python & read<CR>
+
+"c compiling
+autocmd BufWritePost *.c map <F12> <ESC>:!gcc % -o %.quick.out; ./%.quick.out<CR>
+
 let python_highlight_all=1
 let g:pymode_python = 'python3'
-let g:pymode_options_max_line_length = 99
-
+let g:pymode_options_max_line_length = 120
 "fold with space
 nnoremap <space> za
 syntax on
@@ -13,7 +22,11 @@ set nocompatible
 set ignorecase
 set nowrap
 set splitbelow splitright
-color elflord 
+set spelllang+=fr
+set foldmethod=syntax
+set foldcolumn=1
+color elflord
+
 
 filetype off
 set rtp+=$HOME/.vim/bundle/Vundle.vim/
@@ -42,6 +55,8 @@ Plugin 'fisadev/vim-isort'		"sort python import with :Isort
 Plugin 'wsdjeg/vim-lua'			"lua syntax
 Plugin 'xolox/vim-notes'		"note with :Note
 Plugin 'xolox/vim-misc'			"necessary for vim-notes 
+Plugin 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vundle'] }
+Plugin 'dense-analysis/ale'
 
 call vundle#end()
 

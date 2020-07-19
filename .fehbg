@@ -1,2 +1,5 @@
 #!/bin/sh
-feh --no-fehbg --bg-fill `find $HOME/Pictures/wallpaper -type f | shuf -n 1`
+wallpaper=$(find $HOME/Pictures/wallpaper -type f | shuf -n 1)
+export wallpaper
+echo $wallpaper > /tmp/currwallpaper.txt
+feh --no-fehbg --bg-fill "$wallpaper"

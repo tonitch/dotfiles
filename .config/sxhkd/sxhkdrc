@@ -241,7 +241,7 @@ super + space
 	dmenu_recent -i -l 14 -w 600 -y $PANEL_HEIGHT
 
 super + p
-	dmenu_recent -h $PANEL_HEIGHT -i
+	st spt
 
 super + shift + Return
 	st	

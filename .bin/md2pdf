@@ -1,0 +1,5 @@
+#!/bin/sh
+
+MDFILE="$1"
+
+[ -r $MDFILE -a -f $MDFILE ] && pandoc $MDFILE -t html -o ${MDFILE[@]/%md/pdf} || echo "what a freak"

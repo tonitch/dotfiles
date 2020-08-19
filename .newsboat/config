@@ -1,0 +1,6 @@
+auto-reload yes
+
+browser linkhandler
+
+highlight all "---.*---" yellow
+

@@ -241,7 +241,7 @@ super + space
 	dmenu_recent -i -l 14 -w 600 -y $PANEL_HEIGHT
 
 super + p
-	dmenu_recent -h $PANEL_HEIGHT -i
+	st spt
 
 super + shift + Return
 	st	
@@ -294,16 +294,16 @@ XF86Sleep
 	systemctl suspend
 
 XF86AudioPlay
-	playerctl -p spotify play-pause 
+	playerctl -p spotifyd play-pause 
 
 XF86AudioPlay
-	playerctl -p spotify stop
+	playerctl -p spotifyd stop
 
 XF86AudioPrev
-	playerctl -p spotify previous
+	playerctl -p spotifyd previous
 
 XF86AudioNext
-	playerctl -p spotify next
+	playerctl -p spotifyd next
 
 # make sxhkd reload its configuration files:
 super + shift + Escape
@@ -317,8 +317,8 @@ alt + ctrl + space
 	$GUI_EDITOR ~/.config/sxhkd/sxhkdrc
 # Toggle compositing
 super + ctrl + space
-	{pkill compton ,\
-	compton -b }
+	{pkill picom ,\
+	picom -b }
 
 # Remove receptacles
 super + BackSpace

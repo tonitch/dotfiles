@@ -1,0 +1,18 @@
+#!/bin/bash
+
+YTAPIKEY="AIzaSyBYxAISMuf_vVyLpVqUhj3GYZAUvMb2TRE"
+
+YTQuery=$(dmenu -p "Youtube Search Query" < /dev/null) 
+YTAPIOutput=$(curl -X GET "https://www.googleapis.com/youtube/v3/search/?part=snippet&q=${YTQuery// /+}&key=${YTAPIKEY}")
+echo "$YTAPIOutput"
+
+
+YTTitle=$(echo "${YTAPIOutput}" | jq '.items[] | .snippet | .title')
+YTLinks=$(echo "${YTAPIOutput}" | jq '.items[] | .id | .videoId')
+
+CHOICE=$(echo "${YTTitle}" | awk '{ print NR, $0 }' | dmenu -p "Pick your Video" -l 5 -w 1500 -x 200 | cut -c 1)
+YTLink=$(echo "${YTLinks}" | head -n ${CHOICE} | tail -n 1)
+
+echo "https://www.youtube.com/watch?q=${YTLink//\"/}"
+
+setsid -f mpv -quiet "https://www.youtube.com/watch?v=${YTLink//\"/}" > /dev/null 2>&1

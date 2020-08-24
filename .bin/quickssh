@@ -1,0 +1,4 @@
+#!/bin/sh
+sshchoice=$(grep -Eo '^[^, ]+' $HOME/.ssh/known_hosts | dmenu)
+
+$TERMINAL -e ssh $sshchoice

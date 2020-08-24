@@ -1,0 +1,7 @@
+#!/bin/sh
+
+pidof dunst && killall dunst
+dunst &
+
+notify-send "Hello, World!" &
+notify-send "Hello, World!2" --urgency=critical &

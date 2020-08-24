@@ -58,6 +58,7 @@ bindkey '^[[Z' undo                                             # Shift+tab undo
 
 ## Alias section 
 alias cp="cp -i"                                                # Confirm before overwriting something
+alias rm="rm -i"
 alias df='df -h'                                                # Human-readable sizes
 alias free='free -m'                                            # Show sizes in MB
 alias gitu='git add . && git commit && git push'

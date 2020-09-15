@@ -29,7 +29,7 @@ color elflord
 
 
 filetype off
-set rtp+=$HOME/.vim/bundle/Vundle.vim/
+set rtp+=$HOME/.vim/bundle/vundle.vim/
 call vundle#begin()
 
 Plugin 'vundleVim/Vundle.vim'		"plugin Manager

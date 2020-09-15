@@ -2,7 +2,7 @@
 
 twmnd &
 $HOME/.fehbg &
-setxkbmap be &
+setxkbmap fr &
 numlockx &
 picom &
 

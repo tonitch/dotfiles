@@ -23,8 +23,8 @@ set ignorecase
 set nowrap
 set splitbelow splitright
 set spelllang+=fr
-set foldmethod=syntax
-set foldcolumn=1
+"set foldmethod=syntax
+"set foldcolumn=1
 color elflord
 
 
@@ -57,6 +57,8 @@ Plugin 'xolox/vim-notes'		"note with :Note
 Plugin 'xolox/vim-misc'			"necessary for vim-notes 
 Plugin 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vundle'] }
 Plugin 'dense-analysis/ale'
+Plugin 'turbio/bracey.vim'		"Command :Bracey to live render html/css"
+Plugin 'tpope/vim-surround'		"Surround html tags"
 
 call vundle#end()
 

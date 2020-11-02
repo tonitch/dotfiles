@@ -267,6 +267,9 @@ super + shift + e
 super + shift + n
 	newsboat
 
+super + shift + w 
+	chwp
+
 Print
 	scrot -s
 

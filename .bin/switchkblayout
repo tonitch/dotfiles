@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+key=`setxkbmap -query | grep layout | awk '{print $2}'`
+
+if [[ $key == "fr" ]]; then
+	setxkbmap us	
+else
+	setxkbmap fr
+fi
+key=`setxkbmap -query | grep layout | awk '{print $2}'`
+notify-send "Keyboard Layout: $key"
+	

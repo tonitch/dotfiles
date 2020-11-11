@@ -87,7 +87,7 @@ alt + Return
 	bspc node -n @/
 	
 # go (Shift=move) to desktop (and focus the monitor that the desktop is located on. Bspwm style)
-super + {_,shift + }{ampersand,eacute,quotedbl,apostrophe,parenleft,section,egrave,exclam,ccedilla,agrave}
+super + {_,shift + }{ampersand,eacute,quotedbl,apostrophe,parenleft,minus,egrave,underscore,ccedilla,agrave}
     bspc {desktop -f,node -d} ^{1-9,10}
 
 ## Alternative: i3 style behavior (focus nth, desktop of the focused monitor)
@@ -261,6 +261,9 @@ super + shift + b
 super + e
 	spacefm -n
 
+ctrl + alt + n 
+	switchkblayout
+
 super + shift + e
 	st ranger
 
@@ -294,16 +297,16 @@ XF86Sleep
 	systemctl suspend
 
 XF86AudioPlay
-	playerctl -p spotifyd play-pause 
+	playerctl play-pause 
 
 XF86AudioPlay
-	playerctl -p spotifyd stop
+	playerctl stop
 
 XF86AudioPrev
-	playerctl -p spotifyd previous
+	playerctl previous
 
 XF86AudioNext
-	playerctl -p spotifyd next
+	playerctl next
 
 # make sxhkd reload its configuration files:
 super + shift + Escape

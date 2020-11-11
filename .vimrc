@@ -11,6 +11,10 @@ autocmd BufWritePost *.c map <F12> <ESC>:!gcc % -o %.quick.out; ./%.quick.out<CR
 let python_highlight_all=1
 let g:pymode_python = 'python3'
 let g:pymode_options_max_line_length = 120
+
+let g:UltiSnipsExpandTrigger="<c-l>"
+let g:UltiSnipsListSnipets="<c-h>"
+let g:UltiSnipsEditSplit="vertical"
 "fold with space
 nnoremap <space> za
 syntax on

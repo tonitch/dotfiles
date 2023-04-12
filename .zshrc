@@ -1,14 +1,14 @@
 ## Options section
-setopt correct                                                  # Auto correct mistakes
-setopt extendedglob                                             # Extended globbing. Allows using regular expressions with *
-setopt nocaseglob                                               # Case insensitive globbing
-setopt rcexpandparam                                            # Array expension with parameters
-setopt nocheckjobs                                              # Don't warn about running processes when exiting
-setopt numericglobsort                                          # Sort filenames numerically when it makes sense
-setopt nobeep                                                   # No beep
-setopt appendhistory                                            # Immediately append history instead of overwriting
-setopt histignorealldups                                        # If a new command is a duplicate, remove the older one
-setopt autocd                                                   # if only directory path is entered, cd there.
+setopt CORRECT                                                  # Auto correct mistakes
+setopt EXTENDED_GLOB                                            # Extended globbing. Allows using regular expressions with *
+setopt NO_CASE_GLOB                                             # Case insensitive globbing
+setopt RC_EXPAND_PARAM                                          # Array expension with parameters
+setopt NO_CHECK_JOBS                                            # Don't warn about running processes when exiting
+setopt NUMERIC_GLOB_SORT                                        # Sort filenames numerically when it makes sense
+setopt NO_BEEP                                                  # No beep
+setopt APPEND_HISTORY                                           # Immediately append history instead of overwriting
+setopt HIST_IGNORE_ALL_DUPS                                     # If a new command is a duplicate, remove the older one
+setopt AUTO_CD                                                  # if only directory path is entered, cd there.
 
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'       # Case insensitive tab completion
 zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"         # Colored completion (different colors for dirs/files/etc)
@@ -20,25 +20,25 @@ zstyle ':completion:*' cache-path ~/.zsh/cache
 HISTFILE=~/.zhistory
 HISTSIZE=1000
 SAVEHIST=500
-#export EDITOR=/usr/bin/nano
-#export VISUAL=/usr/bin/nano
+#export EDITOR=/usr/bin/vim
+#export VISUAL=/usr/bin/givm
 WORDCHARS=${WORDCHARS//\/[&.;]}                                 # Don't consider certain characters part of the word
 
 
 ## Keybindings section
-bindkey -e
-bindkey '^[[7~' beginning-of-line                               # Home key
-bindkey '^[[H' beginning-of-line                                # Home key
-if [[ "${terminfo[khome]}" != "" ]]; then
-  bindkey "${terminfo[khome]}" beginning-of-line                # [Home] - Go to beginning of line
-fi
-bindkey '^[[8~' end-of-line                                     # End key
-bindkey '^[[F' end-of-line                                     # End key
-if [[ "${terminfo[kend]}" != "" ]]; then
-  bindkey "${terminfo[kend]}" end-of-line                       # [End] - Go to end of line
-fi
-bindkey '^[[2~' overwrite-mode                                  # Insert key
-bindkey '^[[3~' delete-char                                     # Delete key
+bindkey -v
+# bindkey '^[[7~' beginning-of-line                               # Home key
+# bindkey '^[[H' beginning-of-line                                # Home key
+# if [[ "${terminfo[khome]}" != "" ]]; then
+#   bindkey "${terminfo[khome]}" beginning-of-line                # [Home] - Go to beginning of line
+# fi
+# bindkey '^[[8~' end-of-line                                     # End key
+# bindkey '^[[F' end-of-line                                     # End key
+# if [[ "${terminfo[kend]}" != "" ]]; then
+#   bindkey "${terminfo[kend]}" end-of-line                       # [End] - Go to end of line
+# fi
+# bindkey '^[[2~' overwrite-mode                                  # Insert key
+# bindkey '^[[3~' delete-char                                     # Delete key
 bindkey '^[[C'  forward-char                                    # Right key
 bindkey '^[[D'  backward-char                                   # Left key
 bindkey '^[[5~' history-beginning-search-backward               # Page up key
@@ -65,6 +65,7 @@ alias gitu='git add . && git commit && git push'
 alias ls='ls --color=auto'
 alias cal='cal -m'
 alias dotfiles='git --git-dir=$HOME/.config/dotfiles --work-tree=$HOME'
+alias rofi="rofi -show combi"
 
 # Theming section  
 autoload -U compinit colors zcalc
@@ -163,6 +164,8 @@ export LESS=-r
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 # Use history substring search
 source /usr/share/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
+# Use Vim mode 
+source /usr/share/zsh/plugins/zsh-vi-mode/zsh-vi-mode.plugin.zsh
 # bind UP and DOWN arrow keys to history substring search
 zmodload zsh/terminfo
 bindkey "$terminfo[kcuu1]" history-substring-search-up
@@ -202,3 +205,4 @@ case $(basename "$(cat "/proc/$PPID/comm")") in
   		ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=8'
     ;;
 esac
+PROG=tea _CLI_ZSH_AUTOCOMPLETE_HACK=1 source "/home/tonitch/.config/tea/autocomplete.zsh"
